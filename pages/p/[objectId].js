@@ -33,7 +33,12 @@ export default function PostById({ post }) {
       <h1>{post.title}</h1>
       <p>
         <small>
-          <a href={`${post.url}`} className="text-anchor">
+          <a
+            href={`${post.url}`}
+            target="_blank"
+            rel="noopener"
+            className="text-anchor"
+          >
             {post.url}
           </a>
         </small>
