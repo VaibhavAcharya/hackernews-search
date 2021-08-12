@@ -1,5 +1,10 @@
 import Head from "next/head";
 
+import "./../styles/main.css";
+import "./../styles/utilities.css";
+
+import Header from "../components/Header";
+
 function _App({ Component, pageProps }) {
   return (
     <>
@@ -15,12 +20,7 @@ function _App({ Component, pageProps }) {
         <link rel="shortcut icon" href="/logo.svg" type="image/x-icon" />
       </Head>
 
-      <header>
-        <span>
-          {/* <img /> */}
-          HackerNews Search
-        </span>
-      </header>
+      <Header />
 
       <Component {...pageProps} />
     </>

@@ -1,0 +1,189 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-base: hsl(0deg, 0%, 5%);
+  --bg-inverted: hsl(0deg, 0%, 100%);
+
+  --bg-article: hsl(0deg, 0%, 10%);
+  --bg-article-hover: hsl(0deg, 0%, 15%);
+
+  --bg-interactive: hsl(0deg, 0%, 20%);
+  --bg-interactive-hover: hsl(0deg, 0%, 25%);
+
+  --fg-primary: hsl(0deg, 0%, 95%);
+  --fg-secondary: hsl(0deg, 0%, 75%);
+  --fg-special: hsl(160deg, 100%, 75%);
+  --fg-anchor: hsl(180deg, 100%, 75%);
+
+  --fg-placeholder: hsl(0deg, 0%, 50%);
+
+  --max-page-width: min(100%, 720px);
+
+  --gap-sm: 12px;
+  --gap-md: 18px;
+  --gap-lg: 24px;
+
+  --font-system-sans: ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
+  --font: "Montserrat", var(--font-system-sans);
+
+  --fs-base: 16px;
+  --fs-sm: 0.85rem;
+  --fs-md: 1rem;
+  --fs-h6: 1.25rem;
+  --fs-h5: 1.5rem;
+  --fs-h4: 1.75rem;
+  --fs-h3: 2rem;
+  --fs-h2: 2.25rem;
+  --fs-h1: 2.5rem;
+
+  --lh-heading: 100%;
+  --lh-body: 150%;
+
+  --font-weight-regular: 400;
+  --font-weight-bold: 600;
+
+  font-size: var(--fs-base);
+}
+
+html,
+body {
+  width: 100%;
+  height: auto;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+
+  background-color: var(--bg-base);
+}
+
+#__next {
+  width: var(--max-page-width);
+  min-height: 100vh;
+
+  margin: 0 auto;
+  padding: var(--gap-lg);
+}
+
+a {
+  text-decoration: none;
+  color: currentColor;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+
+  color: var(--fg-primary);
+
+  font-family: var(--font);
+
+  word-break: break-word;
+}
+b,
+strong,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: var(--font-weight-bold);
+}
+p {
+  font-size: var(--fs-md);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--lh-body);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: var(--lh-heading);
+}
+h1 {
+  font-size: var(--fs-h1);
+}
+h2 {
+  font-size: var(--fs-h2);
+}
+h3 {
+  font-size: var(--fs-h3);
+}
+h4 {
+  font-size: var(--fs-h4);
+}
+h5 {
+  font-size: var(--fs-h5);
+}
+h6 {
+  font-size: var(--fs-h6);
+}
+small {
+  font-size: var(--fs-sm);
+}
+
+:is(a, input, button):focus {
+  outline: dotted 2px var(--bg-inverted);
+  outline-offset: 2px;
+}
+
+:is(input, button) {
+  appearance: none;
+  border: 0;
+
+  padding: var(--gap-sm);
+
+  font-family: var(--font);
+  font-size: var(--fs-md);
+  font-weight: var(--font-weight-regular);
+
+  background-color: var(--bg-interactive);
+  color: var(--fg-primary);
+}
+:is(input, button):hover {
+  background-color: var(--bg-interactive-hover);
+}
+
+:is(input, button):disabled {
+  opacity: 80%;
+  cursor: not-allowed;
+}
+
+input {
+  width: 100%;
+  line-height: var(--lh-body);
+}
+input::placeholder {
+  color: var(--fg-placeholder);
+}
+
+button {
+  line-height: 100%;
+  cursor: pointer;
+}
+
+article {
+  padding: var(--gap-md);
+
+  background-color: var(--bg-article);
+}
+article:hover {
+  background-color: var(--bg-article-hover);
+}
