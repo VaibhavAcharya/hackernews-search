@@ -1,27 +1,27 @@
 import getDateDistance from "./../utils/getDateDistance";
 
-export default function Comment({ id, created_at, author, text, points, ...props }) {
-  console.log(props, points)
-
+export default function Comment({
+  id,
+  created_at,
+  author,
+  text,
+  points,
+  ...props
+}) {
   return (
     <article className="flex col items-stretch justify-start gap-sm">
       <p>
         <small>
-          By { author }
+          By {author}
           <br />
-          { getDateDistance(created_at) }
+          {getDateDistance(created_at)}
         </small>
       </p>
-      <p className="text-special">{points} points</p>
-      <p>
-        { text }
-      </p>
-      <section  className="flex col items-stretch justify-start gap-sm">
-        {
-          props.children.map(function (comment) {
-            return (<Comment key={comment.id} { ...comment } />);
-          })
-        }
+      <p>{text}</p>
+      <section className="flex col items-stretch justify-start gap-sm">
+        {props.children.map(function (comment) {
+          return <Comment key={comment.id} {...comment} />;
+        })}
       </section>
     </article>
   );

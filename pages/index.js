@@ -1,7 +1,17 @@
 import { useCallback, useRef, useState } from "react";
-import useSWR from "swr";
+
 import SearchIcon from "../components/icons/SearchIcon";
+import FlashIcon from "../components/icons/FlashIcon";
+
 import PostMini from "../components/PostMini";
+
+function StatusText({ children }) {
+  return (
+    <p className="text-special flex row items-stretch justify-center">
+      {children}
+    </p>
+  );
+}
 
 export default function Home() {
   const searchInputRef = useRef(null);
@@ -16,9 +26,12 @@ export default function Home() {
     setIsFetching(true);
 
     try {
-      const response = await fetch(`http://hn.algolia.com/api/v1/search?query=${query}`, {
-        method: "GET"
-      });
+      const response = await fetch(
+        `http://hn.algolia.com/api/v1/search?query=${query}`,
+        {
+          method: "GET",
+        }
+      );
       const newPosts = (await response.json()).hits;
 
       setPosts(newPosts);
@@ -40,27 +53,30 @@ export default function Home() {
           placeholder="Type your search query here..."
           disabled={isFetching}
         />
-        <button type="submit" onClick={search} className="flex row items-center justify-center" disabled={isFetching}>
+        <button
+          type="submit"
+          onClick={search}
+          className="flex row items-center justify-center"
+          disabled={isFetching}
+        >
           <span className="sr-only">Search</span>
 
-          <SearchIcon size={24} />
+          {isFetching ? <FlashIcon size={24} /> : <SearchIcon size={24} />}
         </button>
       </form>
 
       <section className="flex col items-stretch justify-start gap-md">
-        {
-          posts === undefined ? "Some error happened!" : (
-            posts.length < 1 ? (
-              <p className="text-secondary flex row items-stretch justify-center">Start searching to get results here...</p>
-            ) : (
-              posts.map(function (post) {
-                return (
-                  <PostMini key={post.objectId} { ...post } />
-                );
-              })
-            )
-          )
-        }
+        {isFetching ? (
+          <StatusText>🤞 Fetching posts...</StatusText>
+        ) : posts === undefined ? (
+          <StatusText>😢 Some error happened!</StatusText>
+        ) : posts.length < 1 ? (
+          <StatusText>✨ Start searching to get results here...</StatusText>
+        ) : (
+          posts.map(function (post) {
+            return <PostMini key={post.objectId} {...post} />;
+          })
+        )}
       </section>
     </main>
   );

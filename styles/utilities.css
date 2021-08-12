@@ -1,7 +1,15 @@
-.text-primary { color: var(--fg-primary); }
-.text-secondary { color: var(--fg-secondary); }
-.text-special { color: var(--fg-special); }
-.text-anchor { color: var(--fg-anchor); }
+.text-primary {
+  color: var(--fg-primary);
+}
+.text-secondary {
+  color: var(--fg-secondary);
+}
+.text-special {
+  color: var(--fg-special);
+}
+.text-anchor {
+  color: var(--fg-anchor);
+}
 
 .text-align-right {
   text-align: right;
