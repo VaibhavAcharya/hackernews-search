@@ -36,7 +36,7 @@ export default function PostById({ post }) {
           <a
             href={`${post.url}`}
             target="_blank"
-            rel="noopener"
+            rel="noreferrer"
             className="text-anchor"
           >
             {post.url}

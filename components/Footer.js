@@ -7,7 +7,7 @@ export function Footer() {
           <a
             href="https://vaibhavacharya.github.io/"
             target="_blank"
-            rel="noopener"
+            rel="noreferrer"
             className="text-anchor"
           >
             Vaibhav Acharya
@@ -18,7 +18,7 @@ export function Footer() {
           <a
             href="https://hn.algolia.com/api"
             target="_blank"
-            rel="noopener"
+            rel="noreferrer"
             className="text-anchor"
           >
             HN Search API
