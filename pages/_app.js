@@ -4,6 +4,7 @@ import "./../styles/main.css";
 import "./../styles/utilities.css";
 
 import Header from "../components/Header";
+import { Footer } from "../components/Footer";
 
 function _App({ Component, pageProps }) {
   return (
@@ -23,6 +24,8 @@ function _App({ Component, pageProps }) {
       <Header />
 
       <Component {...pageProps} />
+
+      <Footer />
     </>
   );
 }

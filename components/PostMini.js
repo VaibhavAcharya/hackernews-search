@@ -4,23 +4,19 @@ export default function PostMini({
   url,
   author,
   points,
+  num_comments,
   ...props
 }) {
   return (
     <a href={`/p/${objectID}`}>
       <article className="flex col items-stretch justify-start gap-sm">
         <h2>{title}</h2>
-        <p>
-          <small>
-            <a href={`${url}`} className="text-anchor">
-              {url}
-            </a>
-          </small>
-        </p>
         <p className="text-secondary">
           <small>By {author}</small>
         </p>
-        <p className="text-special">{points} points</p>
+        <p className="text-special">
+          {points} points & {num_comments} comments
+        </p>
       </article>
     </a>
   );
