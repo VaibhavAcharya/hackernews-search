@@ -140,6 +140,9 @@ small {
 }
 
 :is(a, input, button):focus {
+  outline: none;
+}
+:is(a, input, button):focus-visible {
   outline: dotted 2px var(--bg-inverted);
   outline-offset: 2px;
 }
