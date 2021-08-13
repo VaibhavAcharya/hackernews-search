@@ -7,7 +7,7 @@ export async function getServerSideProps(context) {
 
   try {
     const response = await fetch(
-      `http://hn.algolia.com/api/v1/items/${targetObjectId}`,
+      `https://hn.algolia.com/api/v1/items/${targetObjectId}`,
       {
         method: "GET",
       }

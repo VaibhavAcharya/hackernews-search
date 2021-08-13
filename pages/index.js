@@ -27,7 +27,7 @@ export default function Home() {
 
     try {
       const response = await fetch(
-        `http://hn.algolia.com/api/v1/search?query=${query}`,
+        `https://hn.algolia.com/api/v1/search?query=${query}`,
         {
           method: "GET",
         }
@@ -36,7 +36,7 @@ export default function Home() {
 
       setPosts(newPosts);
     } catch (error) {
-      console.log("Error: ", e);
+      console.log("Error: ", error);
       setPosts(undefined);
     }
 
