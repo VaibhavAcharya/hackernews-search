@@ -15,6 +15,12 @@ export async function getServerSideProps(context) {
 
     const post = await response.json();
 
+    if (post.status === 404) {
+      return {
+        notFound: true,
+      };
+    }
+
     return {
       props: {
         post,
